@@ -6,19 +6,23 @@ import unittest
 
 # TODO Complete the function so it returns a list of any 5 items
 def test_1_create_a_list():
-    return None
+    l = [1,2,3,4,5]
+    return l
 
 
 # TODO Complete the function so it returns a list of numbers from 0 to 20
 #  with both numbers 0 and 20 included in the list
 def test_2_generate_a_list():
-    return list()
+    l = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+    return l
 
 
 # TODO Complete the function so it returns the product of all the numbers in
 #  the list multiplied together
 def test_3_product(list_1):
-    return None
+    list_1 = [11,11,11]
+    v = list_1[0] * list_1[1] * list_1[2]
+    return v
 
 
 # TODO Complete the function so it returns a list with all the elements from
