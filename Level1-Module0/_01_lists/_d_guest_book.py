@@ -10,8 +10,10 @@ import tkinter as tk
 #         b. Add the guest to list_of_guests
 #         c. Return the list_of_guests
 def add_guest(list_of_guests):
-
-    return list()
+    name = simpledialog.askstring("","What is your name?")
+    list_of_guests += name
+    l = list_of_guests
+    return l
 
 # TODO 2) Complete the function by:
 #         a. Asking for the name of the guest to remove
@@ -19,8 +21,12 @@ def add_guest(list_of_guests):
 #            the guest isn't in the list.
 #         c. Return the list_of_guests
 def remove_guest(list_of_guests):
-
-    return list()
+    r = simpledialog.askstring("","What is the Name of the Guest you would like to remove?")
+    for i in list_of_guests:
+        if r == i:
+            list_of_guests -= i
+        l = list_of_guests
+    return l
 
 # TODO 3) Complete the function by:
 #         a. Display the names of the guests in the following format:
@@ -29,6 +35,7 @@ def remove_guest(list_of_guests):
 #            Guest 3. Jin
 #         b. If there are no guests, print "There are no guests"
 def print_guests(list_of_guests):
+
     pass
 
 # ======================= DO NOT EDIT THE CODE BELOW =========================
@@ -40,7 +47,7 @@ class GuestBook(tk.Tk):
 
         self.guests = list()
 
-        self.geometry('260x50')
+        self.geometry('460x50')
 
         self.grid()
 
