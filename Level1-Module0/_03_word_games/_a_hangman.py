@@ -5,13 +5,18 @@ from tkinter import messagebox
 # TODO 1) Complete the function to return a string with as many
 #  underscores (_) as there are letters in the word to guess
 def setup_new_word(word_to_guess):
-
-    return str()
+    r = ""
+    f = 0
+    f += len(word_to_guess)
+    for i in range(f):
+        r += "_"
+    return r
 
 # TODO 2) Complete the function to return whether the letter is in
 #  the word to guess
 def check_letter_in_word(word_to_guess, letter):
-
+    if letter in word_to_guess:
+        return True
     return False
 
 # TODO 3) Complete the function to return the current guess with the
@@ -22,8 +27,20 @@ def check_letter_in_word(word_to_guess, letter):
 #       return o__nge
 #  Remember that strings can't be changed!
 def replace_letter_in_word(word_to_guess, current_guess, letter):
+    if letter in word_to_guess:
+        if letter in current_guess:
+            return current_guess
+        else:
+            h = 0
+            cur_guess_list = list(current_guess)
+            for i in word_to_guess:
 
-    return str()
+                if i == letter:
+
+                    cur_guess_list[h] = letter
+                h += 1
+
+    return cur_guess_list
 
 # ====================== DO NOT EDIT THE CODE BELOW ===========================
 
@@ -50,7 +67,7 @@ class Hangman(tk.Tk):
         self.get_new_random_word()
 
         # UNCOMMENT TO SHOW HIDDEN WORD
-        #print(self.random_word)
+        print(self.random_word)
 
         # Setup label to display keys pressed by the user
         self.label = tk.Label(self, bg='light grey', textvariable=self.entered_text)
