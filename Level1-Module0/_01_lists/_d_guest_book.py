@@ -10,10 +10,9 @@ import tkinter as tk
 #         b. Add the guest to list_of_guests
 #         c. Return the list_of_guests
 def add_guest(list_of_guests):
-    name = simpledialog.askstring("","What is your name?")
-    list_of_guests += name
-    l = list_of_guests
-    return l
+    name = simpledialog.askstring("","What is the name of the guest you would like to add?")
+    list_of_guests.append (name + "\n")
+    return list_of_guests
 
 # TODO 2) Complete the function by:
 #         a. Asking for the name of the guest to remove
@@ -22,11 +21,11 @@ def add_guest(list_of_guests):
 #         c. Return the list_of_guests
 def remove_guest(list_of_guests):
     r = simpledialog.askstring("","What is the Name of the Guest you would like to remove?")
-    for i in list_of_guests:
-        if r == i:
-            list_of_guests -= i
-        l = list_of_guests
-    return l
+    if r in list_of_guests:
+        list_of_guests.remove(r)
+    else:
+        messagebox.showinfo("","the guest not found")
+    return list_of_guests
 
 # TODO 3) Complete the function by:
 #         a. Display the names of the guests in the following format:
@@ -35,15 +34,15 @@ def remove_guest(list_of_guests):
 #            Guest 3. Jin
 #         b. If there are no guests, print "There are no guests"
 def print_guests(list_of_guests):
-    h = 1
-    l = ""
-    if list_of_guests == None:
-        l += messagebox.showinfo("","There are no Guests to display")
-    for i in list_of_guests:
 
-        l += "","Guest " + str(h) + " " + i
-        h += 1
-    messagebox.showinfo(l)
+
+    if list_of_guests == None:
+        messagebox.showinfo("","There are no Guests to display")
+    else:
+        qlist = ""
+        for i in list_of_guests:
+            qlist += "guest: " + i + "\n"
+        messagebox.showinfo("", qlist)
     return list_of_guests
     pass
 
