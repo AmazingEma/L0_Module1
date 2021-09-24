@@ -9,7 +9,7 @@ def setup_new_word(word_to_guess):
     f = 0
     f += len(word_to_guess)
     for i in range(f):
-        r += "_"
+        r += "_ "
     return r
 
 # TODO 2) Complete the function to return whether the letter is in
@@ -25,7 +25,7 @@ def check_letter_in_word(word_to_guess, letter):
 #       current guess = o__n_e
 #       letter = g
 #       return o__nge
-#  Remember that strings can't be changed!
+#  Remember that strings can't be changed!https://github.com/AmazingEma/L0_Module1.git
 def replace_letter_in_word(word_to_guess, current_guess, letter):
     if letter in word_to_guess:
         if letter in current_guess:
@@ -33,14 +33,16 @@ def replace_letter_in_word(word_to_guess, current_guess, letter):
         else:
             h = 0
             cur_guess_list = list(current_guess)
-            for i in word_to_guess:
+            wtg_spaces = " ".join(word_to_guess)
+            for i in wtg_spaces:
 
                 if i == letter:
-
                     cur_guess_list[h] = letter
-                h += 1
 
-    return cur_guess_list
+                h += 1
+    string_again = "".join(cur_guess_list)
+
+    return string_again
 
 # ====================== DO NOT EDIT THE CODE BELOW ===========================
 
@@ -114,7 +116,10 @@ class Hangman(tk.Tk):
         self.lives_text.set('guesses: ' + str(self.lives))
 
     def check_words_match(self):
-        if self.wtg == self.random_word:
+        rw_spaces = " ".join(self.random_word)
+        print(rw_spaces)
+        print(self.wtg)
+        if self.wtg.strip() == rw_spaces.strip():
             messagebox.showinfo("WINNER", "Congratulations, you win!")
             self.get_new_random_word()
 
